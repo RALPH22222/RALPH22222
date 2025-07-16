@@ -1,13 +1,11 @@
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=00BFA6&height=120&section=header&animation=fadeIn&fontColor=FFFFFF" />
 <h1 align="center">Hey there! I'm Ralph Chester "Chex" M. Candido</h1>
 <h3 align="center">💻 3rd Year Computer Science Student | Full Stack Web Developer 🚀</h3>
-
+  </div>
 <p align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=18&duration=2800&pause=1000&color=00BFA6&center=true&width=600&lines=Passionate+about+building+clean+and+scalable+web+apps;Always+learning+new+tech+and+tools;Turning+ideas+into+functional+reality" alt="Typing SVG" />
 </p>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=00BFA6&height=120&section=header&animation=fadeIn&fontColor=FFFFFF" />
-</div>
 
 ---
 
