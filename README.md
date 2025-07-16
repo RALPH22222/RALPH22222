@@ -56,7 +56,7 @@ A passionate developer who loves to build things that live on the internet. Curr
 ## 📊 GitHub Analytics
 <div align="center" style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; max-width:900px; margin:0 auto">
   <img height="180" src="https://github-readme-stats.vercel.app/api?username=RALPH22222&show_icons=true&title_color=00BFA6&icon_color=00BFA6&text_color=FFFFFF&bg_color=1E2A38&hide_border=true&count_private=true&include_all_commits=true" alt="GitHub stats" />
-  <img height="180" src="https://github-readme-streak-stats.herokuapp.com/?user=RALPH22222&theme=dark&hide_border=true&background=1E2A38&stroke=00BFA6&ring=00BFA6&fire=00BFA6&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=00BFA6&sideLabels=00BFA6" alt="GitHub streak" />
+  <img height="200" src="https://github-readme-streak-stats.herokuapp.com/?user=RALPH22222&theme=dark&hide_border=true&background=1E2A38&stroke=00BFA6&ring=00BFA6&fire=00BFA6&currStreakNum=FFFFFF&sideNums=FFFFFF&currStreakLabel=00BFA6&sideLabels=00BFA6" alt="GitHub streak" />
   <img height="200" src="https://github-readme-stats.vercel.app/api/top-langs/?username=RALPH22222&layout=compact&title_color=00BFA6&text_color=FFFFFF&bg_color=1E2A38&hide_border=true&langs_count=10&card_width=360&exclude_repo=github-readme-stats" alt="Top Languages" />
 </div>
 ---
