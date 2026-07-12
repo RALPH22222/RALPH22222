@@ -62,12 +62,12 @@ def fetch_github_stats():
     }
 
 def fetch_external_stats(stats):
-    """Scrapes Profile Views and Streak Stats since they aren't in standard GraphQL"""
+    """Scrapes Profile Views, Streak Stats, and Lines of Code"""
     import re
     # Profile Views
     try:
         r = requests.get(f"https://komarev.com/ghpvc/?username={USERNAME}")
-        matches = re.findall(r'<text.*?>([\d,]+)</text>', r.text)
+        matches = re.findall(r'>([\d,]+)<', r.text)
         if matches:
             stats['views_data'] = matches[-1]
     except:
@@ -80,13 +80,34 @@ def fetch_external_stats(stats):
         if len(matches) >= 3:
             stats['current_streak_data'] = matches[1]
             stats['longest_streak_data'] = matches[2]
+        else:
+            # Fallback if class changes
+            numbers = re.findall(r'>([\d,]+)<', r.text)
+            # Filter out years or small elements if any, but usually the 3 big stats are here
+            numbers = [n for n in numbers if len(n) < 10]
+            if len(numbers) >= 3:
+                stats['current_streak_data'] = numbers[1]
+                stats['longest_streak_data'] = numbers[2]
     except:
         stats['current_streak_data'] = "N/A"
         stats['longest_streak_data'] = "N/A"
 
-    # Lines of Code (Too heavy to calculate via API without timeouts)
-    stats['loc_data'] = "N/A"
-    
+    # Lines of Code
+    try:
+        r = requests.get(f"https://github-readme-stats.vercel.app/api?username={USERNAME}&show=lines_of_code")
+        # Try finding LOC next to its label
+        matches = re.search(r'Lines of Code.*?([\d,]+)', r.text, re.IGNORECASE | re.DOTALL)
+        if matches:
+            stats['loc_data'] = matches.group(1)
+        else:
+            # Fallback: github-readme-stats usually has numbers in text tags
+            numbers = re.findall(r'>([\d,]+)<', r.text)
+            if numbers:
+                # the highest number is usually lines of code if included
+                stats['loc_data'] = sorted(numbers, key=lambda x: int(x.replace(',', '')))[-1]
+    except:
+        stats['loc_data'] = "N/A"
+        
     return stats
 
 def update_svg(filename, stats):
