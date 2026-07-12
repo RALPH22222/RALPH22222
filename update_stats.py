@@ -18,10 +18,10 @@ def fetch_github_stats():
     query {
         viewer {
             followers { totalCount }
-            repositories(ownerAffiliations: OWNER, isFork: false) {
+            repositories(first: 1, ownerAffiliations: OWNER, isFork: false) {
                 totalCount
             }
-            repositoriesContributedTo(contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]) {
+            repositoriesContributedTo(first: 1, contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]) {
                 totalCount
             }
             contributionsCollection {
@@ -42,7 +42,11 @@ def fetch_github_stats():
     if response.status_code != 200:
         raise Exception(f"Query failed: {response.status_code}. {response.text}")
         
-    data = response.json()['data']['viewer']
+    json_response = response.json()
+    if 'errors' in json_response:
+        raise Exception(f"GraphQL returned errors: {json_response['errors']}")
+        
+    data = json_response['data']['viewer']
     
     # Calculate totals
     followers = data['followers']['totalCount']
