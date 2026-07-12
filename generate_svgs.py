@@ -122,7 +122,7 @@ def generate_svg(mode):
     lines = ascii_art.split('\n')
     y_pos = 60
     for line in lines:
-        svg += f'  <text x="20" y="{{y_pos}}" class="terminal ascii" xml:space="preserve">{{line}}</text>\n'
+        svg += f'  <text x="20" y="{y_pos}" class="terminal ascii" xml:space="preserve">{line}</text>\n'
         y_pos += 10
 
     # Right column layout
