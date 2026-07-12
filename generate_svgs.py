@@ -65,8 +65,13 @@ def generate_svg(mode):
         label = "#7aa2f7"
         value = "#a9b1d6"
         stats = "#f7768e"
+        bg_dark = "#15161e"
+        text = "#a9b1d6"
+        magenta = "#bb9af7"
+        blue = "#7aa2f7"
+        red = "#f7768e"
+        comment = "#565f89"
         ascii_color = "#9ece6a"
-        divider = "#565f89"
         filename = "dark_mode.svg"
     else:
         bg = "#d5d6db"
@@ -76,48 +81,98 @@ def generate_svg(mode):
         label = "#33467c"
         value = "#565f89"
         stats = "#8c4351"
+        bg_dark = "#c8c9ce"
+        text = "#343b58"
+        magenta = "#5a4a78"
+        blue = "#33467c"
+        red = "#8c4351"
+        comment = "#9699a3"
         ascii_color = "#485e30"
-        divider = "#9699a3"
         filename = "light_mode.svg"
 
-    lines = ascii_art.split('\n')
-    
-    svg = f"""<svg width="1350" height="650" viewBox="0 0 1350 650" fill="none" xmlns="http://www.w3.org/2000/svg">
+    svg = f"""<svg width="1250" height="650" viewBox="0 0 1250 650" fill="none" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .terminal {{ font-family: 'Fira Code', 'Consolas', 'Courier New', monospace; font-size: 16px; fill: {terminal}; }}
+    .terminal {{ font-family: 'Fira Code', 'Consolas', 'Courier New', monospace; font-size: 14.5px; fill: {text}; }}
     .ascii {{ font-size: 9.5px; fill: {ascii_color}; font-weight: bold; }}
-    .title {{ fill: {title}; font-weight: bold; }}
-    .label {{ fill: {label}; font-weight: bold; }}
-    .value {{ fill: {value}; }}
-    .stats {{ fill: {stats}; font-weight: bold; }}
-    .bg {{ fill: {bg}; }}
-    .topbar {{ fill: {topbar}; }}
-    .divider {{ fill: {divider}; }}
+    .title {{ font-weight: bold; fill: {magenta}; font-size: 16px; }}
+    .label {{ font-weight: bold; fill: {blue}; }}
+    .value {{ fill: {text}; }}
+    .stats {{ font-weight: bold; fill: {red}; }}
+    .divider {{ fill: {comment}; }}
+    .bg {{ fill: {bg}; stroke: {comment}; stroke-width: 1.5; }}
+    .topbar {{ fill: {bg_dark}; }}
   </style>
 
   <!-- Terminal Window Background -->
-  <rect width="1350" height="650" rx="10" class="bg" />
+  <rect width="1250" height="650" rx="10" class="bg" />
   
   <!-- Terminal Top Bar -->
-  <rect width="1350" height="30" rx="10" class="topbar" />
-  <rect width="1350" height="15" y="15" class="topbar" /> 
+  <rect width="1250" height="30" rx="10" class="topbar" />
+  <rect width="1250" height="15" y="15" class="topbar" /> 
   
   <!-- macOS Buttons -->
   <circle cx="20" cy="15" r="6" fill="#ff5f56" />
   <circle cx="40" cy="15" r="6" fill="#ffbd2e" />
   <circle cx="60" cy="15" r="6" fill="#27c93f" />
   
-  <text x="675" y="20" text-anchor="middle" font-family="monospace" font-size="12" fill="{value}">ralph@chex: ~</text>
+  <text x="625" y="20" text-anchor="middle" font-family="monospace" font-size="12" fill="{text}">ralph@chex: ~</text>
 
   <!-- ASCII Art Left Column -->
-"""
-    y_pos = 60
-    for line in lines:
-        svg += f'  <text x="20" y="{y_pos}" class="terminal ascii" xml:space="preserve">{line}</text>\n'
-        y_pos += 10
-
-    # Right column layout
-    svg += f"""
+  <text x="20" y="60" class="terminal ascii" xml:space="preserve">           .                               .                                .          .            </text>
+  <text x="20" y="70" class="terminal ascii" xml:space="preserve"> .             .                                    . .                 . .       .                 </text>
+  <text x="20" y="80" class="terminal ascii" xml:space="preserve">        ..   .                 .                        .                                .          </text>
+  <text x="20" y="90" class="terminal ascii" xml:space="preserve">        .      .                     .      ..                 .  .        .          .             </text>
+  <text x="20" y="100" class="terminal ascii" xml:space="preserve">          .                                   .    .          .           .   .             .   .   </text>
+  <text x="20" y="110" class="terminal ascii" xml:space="preserve">      .     .                     .       .    .          .        .       .                        </text>
+  <text x="20" y="120" class="terminal ascii" xml:space="preserve">                .  ..         .             .               .              . .          .    .      </text>
+  <text x="20" y="130" class="terminal ascii" xml:space="preserve">                          .   .          .:#@#    .       .          .                              </text>
+  <text x="20" y="140" class="terminal ascii" xml:space="preserve">             .         .        .     :@@@@@%@@@@@@@@@@@@@@*@@   .  .  .                 ..         </text>
+  <text x="20" y="150" class="terminal ascii" xml:space="preserve">  .                                @@@@@@@#%@@@@@@@@%@%%#%@%= -@     .  . .                         </text>
+  <text x="20" y="160" class="terminal ascii" xml:space="preserve">      .              .         @@@**##*##%@@@@#*@@@@**####**++%@* .                      .   .      </text>
+  <text x="20" y="170" class="terminal ascii" xml:space="preserve">.  .        .                 @@#+=+==+-=+%@@@@@%++-:-:-+-=+=+*x*@@      .     ..                   </text>
+  <text x="20" y="180" class="terminal ascii" xml:space="preserve">                 .           @@*+=*x+*=+#*+***####+=+#**#++#*=+=+x@#               . .           .  </text>
+  <text x="20" y="190" class="terminal ascii" xml:space="preserve">      .                .    @@##++***+=+**=%@@@@***-=-+#**=***==++**@@   .            .             </text>
+  <text x="20" y="200" class="terminal ascii" xml:space="preserve">.              ..          @@@*##**x%+*+***@%@@@*#+#=--**+=+#*+=+****@@             .               </text>
+  <text x="20" y="210" class="terminal ascii" xml:space="preserve">     .                     @+#####x@*@%#*##*@#%+**=-*==+#**%**=-+-*x*@@ .                           </text>
+  <text x="20" y="220" class="terminal ascii" xml:space="preserve">                           @*####x*@*@*@@**##++*+-+#+--=#+=@#*++#=+x*x@@                 .          </text>
+  <text x="20" y="230" class="terminal ascii" xml:space="preserve">        .            .     @@#*##*==#=#=-:-:-:-:-::-*=-#:-:--#=:-#++x%%@@     .     .           .   </text>
+  <text x="20" y="240" class="terminal ascii" xml:space="preserve">            .  .           @@--=+****x*x@@@@%++:---+==***+--+@+=-**+**x@@                           </text>
+  <text x="20" y="250" class="terminal ascii" xml:space="preserve">     .                  .  @@:-:###*+**@x@@@*++x#--:=+#*+*---@#+-@**=*x@@                           </text>
+  <text x="20" y="260" class="terminal ascii" xml:space="preserve"> .                .      . @@:-:-====+---+---+====+-----++=--=-::=-:-#+x@      .      .       .     </text>
+  <text x="20" y="270" class="terminal ascii" xml:space="preserve">         .                 @-:-%@@@@@%=-:.-. .+++#@@@@@@@@%=-:-.::-:-%+x@ .                .        </text>
+  <text x="20" y="280" class="terminal ascii" xml:space="preserve">                 ..      . @-:-.::+---=+=:-:-::=+:---=-::=+-..-=:-:.-%+x@      .       .            </text>
+  <text x="20" y="290" class="terminal ascii" xml:space="preserve">.  .       .          .    @+-:-:......*@=:-.::+. ...-@%....:-:..=:-:%x@           .                </text>
+  <text x="20" y="300" class="terminal ascii" xml:space="preserve">   .    .                 .@:-:==+==-=====ee-=======eeeeeee@====-==+++x#                   .      . </text>
+  <text x="20" y="310" class="terminal ascii" xml:space="preserve">                 .  .      %+==**#***@@#====+=====@%x***x@@@@*==+++++x%@            .               </text>
+  <text x="20" y="320" class="terminal ascii" xml:space="preserve"> .                       ..@*==****+##=....... ::=+*++++**x*=***=-===x*@                  .     .   </text>
+  <text x="20" y="330" class="terminal ascii" xml:space="preserve">         .         .       @@**==**++**x%@@@@@===--::-+===****%*=-===x*@        .                   </text>
+  <text x="20" y="340" class="terminal ascii" xml:space="preserve">                   .       @*@*+=*=**++*=****=:-::-++=-:-:-=+-...-====*@          .       .         </text>
+  <text x="20" y="350" class="terminal ascii" xml:space="preserve">       .              .   .  %*-:-..:--...:-=+:-:+-:..::=---=0    ...-:@     .               .      </text>
+  <text x="20" y="360" class="terminal ascii" xml:space="preserve">              .              %****:-:*@%@@*+....-=@%@@@#...-***#=-:-:-*@                 .          </text>
+  <text x="20" y="370" class="terminal ascii" xml:space="preserve">     .         .      .      @#**+--:-==-..:=+=-:-...-=-..-***+**++-=+#@          .            .    </text>
+  <text x="20" y="380" class="terminal ascii" xml:space="preserve">   .                 .       @*x**=+==-:-+**=x**+:-..:=#*=-=**@*****++#@    .       .       .       </text>
+  <text x="20" y="390" class="terminal ascii" xml:space="preserve">           . .               @*@%**=-+*@@@@%*-..:+@@@@#=-+===**%++@%+-*@              .          .  </text>
+  <text x="20" y="400" class="terminal ascii" xml:space="preserve">        .                    @@x*x#++**#==#+@++++#*#==#=*+=#@**%++*@#+@*          .                 </text>
+  <text x="20" y="410" class="terminal ascii" xml:space="preserve"> .            .         .    .@@**#x%+=*++**+##@@%+*++**=#++@**x*+***@@            .       .        </text>
+  <text x="20" y="420" class="terminal ascii" xml:space="preserve">        .                    . @@***++*x+**+**=++=+#@*+*=*+***x%++==*@@    .                        </text>
+  <text x="20" y="430" class="terminal ascii" xml:space="preserve">.  .       .                 . ..@@*+**+*****+#*x#***+***+**#+***++x@@..          . .             . </text>
+  <text x="20" y="440" class="terminal ascii" xml:space="preserve">                 .  .....:-::--::..@@#***=***+**##**#++**+++**@@@@@@......:.            .    .      </text>
+  <text x="20" y="450" class="terminal ascii" xml:space="preserve">      .        ..:-::-:-:---=----...%@@=:-.-=-+@=-----=-.-+...x@.......:::::::::.. .            .   </text>
+  <text x="20" y="460" class="terminal ascii" xml:space="preserve">             .-:-::-:-:-------=:..  ...@@@+.....+@@......:...x@@ ......:-::::::::::--:              </text>
+  <text x="20" y="470" class="terminal ascii" xml:space="preserve"> .     .  ...-:-::-::-::---=--...   @@@@@@%---:-:@........:+@@@@@@@@@@ ...:::::--:::::::..  .       </text>
+  <text x="20" y="480" class="terminal ascii" xml:space="preserve">       ..:-::-:-:--...:-:-:-:-.  ..@@*+=+***x%@@%*+=-...@@=--@@ .:.....+@.. ..:::::::::::::-::.     </text>
+  <text x="20" y="490" class="terminal ascii" xml:space="preserve"> .   .:-:::--:--. .=-.. :::::-:-...@@--==+==*-:-==+=-:-.@*.-:@@ ...==+*@@@......:::::-:-::::::-::.  </text>
+  <text x="20" y="500" class="terminal ascii" xml:space="preserve">   .+:-.:--...:. +-.. ::::-:-:  ..@%-:-:-=-:-:-=:-...-::@-@@..::::...:-=-=x@...:::::-:::::-:::..:-  </text>
+  <text x="20" y="510" class="terminal ascii" xml:space="preserve">  .=:-.=--..  ...=.. ::-:-:-: ..-@@*-..::--.-:  =-.. -=@@.. ...::- -#-:::::===..::::::-:::..::--::  </text>
+  <text x="20" y="520" class="terminal ascii" xml:space="preserve"> @.=:=*--:-: -:-:  #.-.@:: -::-::.%@..:-:-:-.% . .--:-.@@. . -@.-. .=.-::-:-x-- -::-:..:-+.:-::..-..</text>
+  <text x="20" y="530" class="terminal ascii" xml:space="preserve">.++..++-::x%-.-::--.-- .@ @+@      :-:=.      -@+@      -:-:= +.-:..+ .:.:- .:-:: ++-:.-:+.::.-:*+ .</text>
+  <text x="20" y="540" class="terminal ascii" xml:space="preserve">#+. .=*:=..-..-@:.- :@:= -= +::.. .@:@        :-=  .   .. .++:-..:: -.--:::= .=:+.-::..*++-=...:+::.</text>
+  <text x="20" y="550" class="terminal ascii" xml:space="preserve">=@-.--::-+:::..:::+@+.-:-.. :-..@ .@*@        =@=@       -.-::...-:=::.:-...=:+.-:::...:==.=--.:+...</text>
+  <text x="20" y="560" class="terminal ascii" xml:space="preserve">#:.@.-:*.-:-:-.::.::--... @+.- :..: @-......:::::......... ::-::.....:-:-::-::::-::::.....::.-=- *+:</text>
+  <text x="20" y="570" class="terminal ascii" xml:space="preserve">++ = +*.-.-..*:---::---   @@ @@::+..=         @@@@ *-:-.::=.:-::-..:---:-=:::-=::..:-..%:.-..*.%..==</text>
+  <text x="20" y="580" class="terminal ascii" xml:space="preserve">   .   .  .         .           .      .                .       .                       .           </text>
+  <text x="20" y="590" class="terminal ascii" xml:space="preserve">               .                         *     .     ..          .  .                               </text>
+ 
   <!-- Text Content Right Column (Explicit Y coordinates to prevent overlap) -->
   <text x="680" y="90" class="terminal" xml:space="preserve"><tspan class="title">ralph@chex</tspan> <tspan class="divider">------------------------------------------------------</tspan></text>
   
@@ -143,7 +198,7 @@ def generate_svg(mode):
   <text x="680" y="560" class="terminal" xml:space="preserve"><tspan class="divider">.</tspan> <tspan class="label">Current Streak:  </tspan> <tspan class="stats" id="current_streak_data">---</tspan>  <tspan class="label">| Longest Streak:</tspan> <tspan class="stats" id="longest_streak_data">---</tspan></text>
   
   <!-- Custom Colored Blocks at the bottom to mimic terminal aesthetics -->
-  <g transform="translate(1100, 600)">
+  <g transform="translate(1000, 600)">
 """
     
     if mode == "dark":

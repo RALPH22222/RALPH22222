@@ -13,7 +13,7 @@ if not GITHUB_TOKEN:
 HEADERS = {'Authorization': f'bearer {GITHUB_TOKEN}'}
 
 def fetch_github_stats():
-    """Fetches user stats using GitHub GraphQL API"""
+    """Fetches user stats and calculates streaks using GitHub GraphQL API"""
     query = """
     query {
         viewer {
@@ -27,6 +27,12 @@ def fetch_github_stats():
             contributionsCollection {
                 contributionCalendar {
                     totalContributions
+                    weeks {
+                        contributionDays {
+                            contributionCount
+                            date
+                        }
+                    }
                 }
             }
         }
@@ -52,13 +58,56 @@ def fetch_github_stats():
     followers = data['followers']['totalCount']
     repos = data['repositories']['totalCount']
     contributed = data['repositoriesContributedTo']['totalCount']
-    commits = data['contributionsCollection']['contributionCalendar']['totalContributions']
+    calendar = data['contributionsCollection']['contributionCalendar']
+    commits = calendar['totalContributions']
+    
+    # Calculate streaks natively
+    import datetime
+    current_streak = 0
+    longest_streak = 0
+    current_streak_temp = 0
+    
+    today = datetime.datetime.now().date()
+    
+    # Flatten days
+    all_days = []
+    for week in calendar['weeks']:
+        for day in week['contributionDays']:
+            all_days.append(day)
+            
+    # Calculate longest streak
+    for day in all_days:
+        if day['contributionCount'] > 0:
+            current_streak_temp += 1
+            if current_streak_temp > longest_streak:
+                longest_streak = current_streak_temp
+        else:
+            current_streak_temp = 0
+            
+    # Calculate current streak (counting backwards from today or yesterday)
+    all_days.reverse()
+    found_today = False
+    for day in all_days:
+        day_date = datetime.datetime.strptime(day['date'], "%Y-%m-%d").date()
+        if day_date > today:
+            continue
+        
+        # If today has 0, we check yesterday. If yesterday has 0, streak is 0.
+        if day_date == today and day['contributionCount'] == 0:
+            continue
+            
+        if day['contributionCount'] > 0:
+            current_streak += 1
+        else:
+            break
     
     return {
         'followers_data': f"{followers:,}",
         'repos_data': f"{repos:,}",
         'contributed_data': f"{contributed:,}",
-        'commits_data': f"{commits:,}"
+        'commits_data': f"{commits:,}",
+        'current_streak_data': str(current_streak),
+        'longest_streak_data': str(longest_streak)
     }
 
 def fetch_external_stats(stats):
@@ -72,28 +121,6 @@ def fetch_external_stats(stats):
             stats['views_data'] = matches[-1]
     except:
         stats['views_data'] = "N/A"
-
-    # Streaks
-    try:
-        r = requests.get(f"https://streak-stats.demolab.com?user={USERNAME}")
-        matches = re.findall(r'<text.*?class="stat.*?>([\d,]+)</text>', r.text)
-        if len(matches) >= 3:
-            stats['current_streak_data'] = matches[1]
-            stats['longest_streak_data'] = matches[2]
-        else:
-            # Fallback if class changes
-            numbers = re.findall(r'>([\d,]+)<', r.text)
-            # Filter out years or small elements if any, but usually the 3 big stats are here
-            numbers = [n for n in numbers if len(n) < 10]
-            if len(numbers) >= 3:
-                stats['current_streak_data'] = numbers[1]
-                stats['longest_streak_data'] = numbers[2]
-            else:
-                stats['current_streak_data'] = "N/A"
-                stats['longest_streak_data'] = "N/A"
-    except:
-        stats['current_streak_data'] = "N/A"
-        stats['longest_streak_data'] = "N/A"
 
     # Lines of Code
     try:
