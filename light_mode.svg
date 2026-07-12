@@ -104,9 +104,10 @@
   
   <text x="680" y="500" class="terminal" xml:space="preserve"><tspan class="divider">.</tspan> <tspan class="label">Repos:   </tspan> <tspan class="stats" id="repos_data">---</tspan>  <tspan class="label">| Contributed To:</tspan> <tspan class="stats" id="contributed_data">---</tspan>  <tspan class="label">| Profile Views:</tspan> <tspan class="stats" id="views_data">---</tspan></text>
   <text x="680" y="530" class="terminal" xml:space="preserve"><tspan class="divider">.</tspan> <tspan class="label">Commits: </tspan> <tspan class="stats" id="commits_data">---</tspan>  <tspan class="label">| Followers:     </tspan> <tspan class="stats" id="followers_data">---</tspan>  <tspan class="label">| Lines of Code:</tspan> <tspan class="stats" id="loc_data">---</tspan></text>
+  <text x="680" y="560" class="terminal" xml:space="preserve"><tspan class="divider">.</tspan> <tspan class="label">Current Streak:  </tspan> <tspan class="stats" id="current_streak_data">---</tspan>  <tspan class="label">| Longest Streak:</tspan> <tspan class="stats" id="longest_streak_data">---</tspan></text>
   
   <!-- Custom Colored Blocks at the bottom to mimic terminal aesthetics -->
-  <g transform="translate(1000, 580)">
+  <g transform="translate(1000, 600)">
     <rect x="0" y="0" width="25" height="15" fill="#4c566a"/>
     <rect x="25" y="0" width="25" height="15" fill="#8c4351"/>
     <rect x="50" y="0" width="25" height="15" fill="#485e30"/>

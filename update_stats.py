@@ -15,14 +15,14 @@ HEADERS = {'Authorization': f'bearer {GITHUB_TOKEN}'}
 def fetch_github_stats():
     """Fetches user stats using GitHub GraphQL API"""
     query = """
-    query($login: String!) {
-        user(login: $login) {
+    query {
+        viewer {
             followers { totalCount }
-            repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
+            repositories(ownerAffiliations: OWNER, isFork: false) {
                 totalCount
-                nodes {
-                    stargazers { totalCount }
-                }
+            }
+            repositoriesContributedTo(contributionTypes: [COMMIT, ISSUE, PULL_REQUEST, REPOSITORY]) {
+                totalCount
             }
             contributionsCollection {
                 contributionCalendar {
@@ -33,33 +33,57 @@ def fetch_github_stats():
     }
     """
     
-    variables = {'login': USERNAME}
-    
     response = requests.post(
         'https://api.github.com/graphql', 
-        json={'query': query, 'variables': variables}, 
+        json={'query': query}, 
         headers=HEADERS
     )
     
     if response.status_code != 200:
         raise Exception(f"Query failed: {response.status_code}. {response.text}")
         
-    data = response.json()['data']['user']
+    data = response.json()['data']['viewer']
     
     # Calculate totals
     followers = data['followers']['totalCount']
     repos = data['repositories']['totalCount']
+    contributed = data['repositoriesContributedTo']['totalCount']
     commits = data['contributionsCollection']['contributionCalendar']['totalContributions']
-    
-    # Sum up stars from all repositories
-    stars = sum(node['stargazers']['totalCount'] for node in data['repositories']['nodes'])
     
     return {
         'followers_data': f"{followers:,}",
         'repos_data': f"{repos:,}",
-        'commits_data': f"{commits:,}",
-        'stars_data': f"{stars:,}"
+        'contributed_data': f"{contributed:,}",
+        'commits_data': f"{commits:,}"
     }
+
+def fetch_external_stats(stats):
+    """Scrapes Profile Views and Streak Stats since they aren't in standard GraphQL"""
+    import re
+    # Profile Views
+    try:
+        r = requests.get(f"https://komarev.com/ghpvc/?username={USERNAME}")
+        matches = re.findall(r'<text.*?>([\d,]+)</text>', r.text)
+        if matches:
+            stats['views_data'] = matches[-1]
+    except:
+        stats['views_data'] = "N/A"
+
+    # Streaks
+    try:
+        r = requests.get(f"https://streak-stats.demolab.com?user={USERNAME}")
+        matches = re.findall(r'<text.*?class="stat.*?>([\d,]+)</text>', r.text)
+        if len(matches) >= 3:
+            stats['current_streak_data'] = matches[1]
+            stats['longest_streak_data'] = matches[2]
+    except:
+        stats['current_streak_data'] = "N/A"
+        stats['longest_streak_data'] = "N/A"
+
+    # Lines of Code (Too heavy to calculate via API without timeouts)
+    stats['loc_data'] = "N/A"
+    
+    return stats
 
 def update_svg(filename, stats):
     """Updates the SVG file with the provided stats"""
@@ -82,6 +106,7 @@ if __name__ == "__main__":
     try:
         print("Fetching stats from GitHub...")
         stats = fetch_github_stats()
+        stats = fetch_external_stats(stats)
         print(f"Stats fetched: {stats}")
         
         update_svg('light_mode.svg', stats)
