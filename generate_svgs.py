@@ -118,61 +118,15 @@ def generate_svg(mode):
   <text x="625" y="20" text-anchor="middle" font-family="monospace" font-size="12" fill="{text}">ralph@chex: ~</text>
 
   <!-- ASCII Art Left Column -->
-  <text x="20" y="60" class="terminal ascii" xml:space="preserve">           .                               .                                .          .            </text>
-  <text x="20" y="70" class="terminal ascii" xml:space="preserve"> .             .                                    . .                 . .       .                 </text>
-  <text x="20" y="80" class="terminal ascii" xml:space="preserve">        ..   .                 .                        .                                .          </text>
-  <text x="20" y="90" class="terminal ascii" xml:space="preserve">        .      .                     .      ..                 .  .        .          .             </text>
-  <text x="20" y="100" class="terminal ascii" xml:space="preserve">          .                                   .    .          .           .   .             .   .   </text>
-  <text x="20" y="110" class="terminal ascii" xml:space="preserve">      .     .                     .       .    .          .        .       .                        </text>
-  <text x="20" y="120" class="terminal ascii" xml:space="preserve">                .  ..         .             .               .              . .          .    .      </text>
-  <text x="20" y="130" class="terminal ascii" xml:space="preserve">                          .   .          .:#@#    .       .          .                              </text>
-  <text x="20" y="140" class="terminal ascii" xml:space="preserve">             .         .        .     :@@@@@%@@@@@@@@@@@@@@*@@   .  .  .                 ..         </text>
-  <text x="20" y="150" class="terminal ascii" xml:space="preserve">  .                                @@@@@@@#%@@@@@@@@%@%%#%@%= -@     .  . .                         </text>
-  <text x="20" y="160" class="terminal ascii" xml:space="preserve">      .              .         @@@**##*##%@@@@#*@@@@**####**++%@* .                      .   .      </text>
-  <text x="20" y="170" class="terminal ascii" xml:space="preserve">.  .        .                 @@#+=+==+-=+%@@@@@%++-:-:-+-=+=+*x*@@      .     ..                   </text>
-  <text x="20" y="180" class="terminal ascii" xml:space="preserve">                 .           @@*+=*x+*=+#*+***####+=+#**#++#*=+=+x@#               . .           .  </text>
-  <text x="20" y="190" class="terminal ascii" xml:space="preserve">      .                .    @@##++***+=+**=%@@@@***-=-+#**=***==++**@@   .            .             </text>
-  <text x="20" y="200" class="terminal ascii" xml:space="preserve">.              ..          @@@*##**x%+*+***@%@@@*#+#=--**+=+#*+=+****@@             .               </text>
-  <text x="20" y="210" class="terminal ascii" xml:space="preserve">     .                     @+#####x@*@%#*##*@#%+**=-*==+#**%**=-+-*x*@@ .                           </text>
-  <text x="20" y="220" class="terminal ascii" xml:space="preserve">                           @*####x*@*@*@@**##++*+-+#+--=#+=@#*++#=+x*x@@                 .          </text>
-  <text x="20" y="230" class="terminal ascii" xml:space="preserve">        .            .     @@#*##*==#=#=-:-:-:-:-::-*=-#:-:--#=:-#++x%%@@     .     .           .   </text>
-  <text x="20" y="240" class="terminal ascii" xml:space="preserve">            .  .           @@--=+****x*x@@@@%++:---+==***+--+@+=-**+**x@@                           </text>
-  <text x="20" y="250" class="terminal ascii" xml:space="preserve">     .                  .  @@:-:###*+**@x@@@*++x#--:=+#*+*---@#+-@**=*x@@                           </text>
-  <text x="20" y="260" class="terminal ascii" xml:space="preserve"> .                .      . @@:-:-====+---+---+====+-----++=--=-::=-:-#+x@      .      .       .     </text>
-  <text x="20" y="270" class="terminal ascii" xml:space="preserve">         .                 @-:-%@@@@@%=-:.-. .+++#@@@@@@@@%=-:-.::-:-%+x@ .                .        </text>
-  <text x="20" y="280" class="terminal ascii" xml:space="preserve">                 ..      . @-:-.::+---=+=:-:-::=+:---=-::=+-..-=:-:.-%+x@      .       .            </text>
-  <text x="20" y="290" class="terminal ascii" xml:space="preserve">.  .       .          .    @+-:-:......*@=:-.::+. ...-@%....:-:..=:-:%x@           .                </text>
-  <text x="20" y="300" class="terminal ascii" xml:space="preserve">   .    .                 .@:-:==+==-=====ee-=======eeeeeee@====-==+++x#                   .      . </text>
-  <text x="20" y="310" class="terminal ascii" xml:space="preserve">                 .  .      %+==**#***@@#====+=====@%x***x@@@@*==+++++x%@            .               </text>
-  <text x="20" y="320" class="terminal ascii" xml:space="preserve"> .                       ..@*==****+##=....... ::=+*++++**x*=***=-===x*@                  .     .   </text>
-  <text x="20" y="330" class="terminal ascii" xml:space="preserve">         .         .       @@**==**++**x%@@@@@===--::-+===****%*=-===x*@        .                   </text>
-  <text x="20" y="340" class="terminal ascii" xml:space="preserve">                   .       @*@*+=*=**++*=****=:-::-++=-:-:-=+-...-====*@          .       .         </text>
-  <text x="20" y="350" class="terminal ascii" xml:space="preserve">       .              .   .  %*-:-..:--...:-=+:-:+-:..::=---=0    ...-:@     .               .      </text>
-  <text x="20" y="360" class="terminal ascii" xml:space="preserve">              .              %****:-:*@%@@*+....-=@%@@@#...-***#=-:-:-*@                 .          </text>
-  <text x="20" y="370" class="terminal ascii" xml:space="preserve">     .         .      .      @#**+--:-==-..:=+=-:-...-=-..-***+**++-=+#@          .            .    </text>
-  <text x="20" y="380" class="terminal ascii" xml:space="preserve">   .                 .       @*x**=+==-:-+**=x**+:-..:=#*=-=**@*****++#@    .       .       .       </text>
-  <text x="20" y="390" class="terminal ascii" xml:space="preserve">           . .               @*@%**=-+*@@@@%*-..:+@@@@#=-+===**%++@%+-*@              .          .  </text>
-  <text x="20" y="400" class="terminal ascii" xml:space="preserve">        .                    @@x*x#++**#==#+@++++#*#==#=*+=#@**%++*@#+@*          .                 </text>
-  <text x="20" y="410" class="terminal ascii" xml:space="preserve"> .            .         .    .@@**#x%+=*++**+##@@%+*++**=#++@**x*+***@@            .       .        </text>
-  <text x="20" y="420" class="terminal ascii" xml:space="preserve">        .                    . @@***++*x+**+**=++=+#@*+*=*+***x%++==*@@    .                        </text>
-  <text x="20" y="430" class="terminal ascii" xml:space="preserve">.  .       .                 . ..@@*+**+*****+#*x#***+***+**#+***++x@@..          . .             . </text>
-  <text x="20" y="440" class="terminal ascii" xml:space="preserve">                 .  .....:-::--::..@@#***=***+**##**#++**+++**@@@@@@......:.            .    .      </text>
-  <text x="20" y="450" class="terminal ascii" xml:space="preserve">      .        ..:-::-:-:---=----...%@@=:-.-=-+@=-----=-.-+...x@.......:::::::::.. .            .   </text>
-  <text x="20" y="460" class="terminal ascii" xml:space="preserve">             .-:-::-:-:-------=:..  ...@@@+.....+@@......:...x@@ ......:-::::::::::--:              </text>
-  <text x="20" y="470" class="terminal ascii" xml:space="preserve"> .     .  ...-:-::-::-::---=--...   @@@@@@%---:-:@........:+@@@@@@@@@@ ...:::::--:::::::..  .       </text>
-  <text x="20" y="480" class="terminal ascii" xml:space="preserve">       ..:-::-:-:--...:-:-:-:-.  ..@@*+=+***x%@@%*+=-...@@=--@@ .:.....+@.. ..:::::::::::::-::.     </text>
-  <text x="20" y="490" class="terminal ascii" xml:space="preserve"> .   .:-:::--:--. .=-.. :::::-:-...@@--==+==*-:-==+=-:-.@*.-:@@ ...==+*@@@......:::::-:-::::::-::.  </text>
-  <text x="20" y="500" class="terminal ascii" xml:space="preserve">   .+:-.:--...:. +-.. ::::-:-:  ..@%-:-:-=-:-:-=:-...-::@-@@..::::...:-=-=x@...:::::-:::::-:::..:-  </text>
-  <text x="20" y="510" class="terminal ascii" xml:space="preserve">  .=:-.=--..  ...=.. ::-:-:-: ..-@@*-..::--.-:  =-.. -=@@.. ...::- -#-:::::===..::::::-:::..::--::  </text>
-  <text x="20" y="520" class="terminal ascii" xml:space="preserve"> @.=:=*--:-: -:-:  #.-.@:: -::-::.%@..:-:-:-.% . .--:-.@@. . -@.-. .=.-::-:-x-- -::-:..:-+.:-::..-..</text>
-  <text x="20" y="530" class="terminal ascii" xml:space="preserve">.++..++-::x%-.-::--.-- .@ @+@      :-:=.      -@+@      -:-:= +.-:..+ .:.:- .:-:: ++-:.-:+.::.-:*+ .</text>
-  <text x="20" y="540" class="terminal ascii" xml:space="preserve">#+. .=*:=..-..-@:.- :@:= -= +::.. .@:@        :-=  .   .. .++:-..:: -.--:::= .=:+.-::..*++-=...:+::.</text>
-  <text x="20" y="550" class="terminal ascii" xml:space="preserve">=@-.--::-+:::..:::+@+.-:-.. :-..@ .@*@        =@=@       -.-::...-:=::.:-...=:+.-:::...:==.=--.:+...</text>
-  <text x="20" y="560" class="terminal ascii" xml:space="preserve">#:.@.-:*.-:-:-.::.::--... @+.- :..: @-......:::::......... ::-::.....:-:-::-::::-::::.....::.-=- *+:</text>
-  <text x="20" y="570" class="terminal ascii" xml:space="preserve">++ = +*.-.-..*:---::---   @@ @@::+..=         @@@@ *-:-.::=.:-::-..:---:-=:::-=::..:-..%:.-..*.%..==</text>
-  <text x="20" y="580" class="terminal ascii" xml:space="preserve">   .   .  .         .           .      .                .       .                       .           </text>
-  <text x="20" y="590" class="terminal ascii" xml:space="preserve">               .                         *     .     ..          .  .                               </text>
- 
+"""
+    lines = ascii_art.split('\n')
+    y_pos = 60
+    for line in lines:
+        svg += f'  <text x="20" y="{{y_pos}}" class="terminal ascii" xml:space="preserve">{{line}}</text>\n'
+        y_pos += 10
+
+    # Right column layout
+    svg += f"""
   <!-- Text Content Right Column (Explicit Y coordinates to prevent overlap) -->
   <text x="680" y="90" class="terminal" xml:space="preserve"><tspan class="title">ralph@chex</tspan> <tspan class="divider">------------------------------------------------------</tspan></text>
   
