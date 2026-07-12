@@ -88,6 +88,9 @@ def fetch_external_stats(stats):
             if len(numbers) >= 3:
                 stats['current_streak_data'] = numbers[1]
                 stats['longest_streak_data'] = numbers[2]
+            else:
+                stats['current_streak_data'] = "N/A"
+                stats['longest_streak_data'] = "N/A"
     except:
         stats['current_streak_data'] = "N/A"
         stats['longest_streak_data'] = "N/A"

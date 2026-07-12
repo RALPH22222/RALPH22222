@@ -82,7 +82,7 @@ def generate_svg(mode):
 
     lines = ascii_art.split('\n')
     
-    svg = f"""<svg width="1250" height="650" viewBox="0 0 1250 650" fill="none" xmlns="http://www.w3.org/2000/svg">
+    svg = f"""<svg width="1350" height="650" viewBox="0 0 1350 650" fill="none" xmlns="http://www.w3.org/2000/svg">
   <style>
     .terminal {{ font-family: 'Fira Code', 'Consolas', 'Courier New', monospace; font-size: 16px; fill: {terminal}; }}
     .ascii {{ font-size: 9.5px; fill: {ascii_color}; font-weight: bold; }}
@@ -96,18 +96,18 @@ def generate_svg(mode):
   </style>
 
   <!-- Terminal Window Background -->
-  <rect width="1250" height="650" rx="10" class="bg" />
+  <rect width="1350" height="650" rx="10" class="bg" />
   
   <!-- Terminal Top Bar -->
-  <rect width="1250" height="30" rx="10" class="topbar" />
-  <rect width="1250" height="15" y="15" class="topbar" /> 
+  <rect width="1350" height="30" rx="10" class="topbar" />
+  <rect width="1350" height="15" y="15" class="topbar" /> 
   
   <!-- macOS Buttons -->
   <circle cx="20" cy="15" r="6" fill="#ff5f56" />
   <circle cx="40" cy="15" r="6" fill="#ffbd2e" />
   <circle cx="60" cy="15" r="6" fill="#27c93f" />
   
-  <text x="625" y="20" text-anchor="middle" font-family="monospace" font-size="12" fill="{value}">ralph@chex: ~</text>
+  <text x="675" y="20" text-anchor="middle" font-family="monospace" font-size="12" fill="{value}">ralph@chex: ~</text>
 
   <!-- ASCII Art Left Column -->
 """
@@ -143,7 +143,7 @@ def generate_svg(mode):
   <text x="680" y="560" class="terminal" xml:space="preserve"><tspan class="divider">.</tspan> <tspan class="label">Current Streak:  </tspan> <tspan class="stats" id="current_streak_data">---</tspan>  <tspan class="label">| Longest Streak:</tspan> <tspan class="stats" id="longest_streak_data">---</tspan></text>
   
   <!-- Custom Colored Blocks at the bottom to mimic terminal aesthetics -->
-  <g transform="translate(1000, 600)">
+  <g transform="translate(1100, 600)">
 """
     
     if mode == "dark":
