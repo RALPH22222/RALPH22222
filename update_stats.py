@@ -122,21 +122,6 @@ def fetch_external_stats(stats):
     except:
         stats['views_data'] = "N/A"
 
-    # Lines of Code
-    try:
-        r = requests.get(f"https://github-readme-stats.vercel.app/api?username={USERNAME}&show=lines_of_code")
-        # Try finding LOC next to its label
-        matches = re.search(r'Lines of Code.*?([\d,]+)', r.text, re.IGNORECASE | re.DOTALL)
-        if matches:
-            stats['loc_data'] = matches.group(1)
-        else:
-            # Fallback: github-readme-stats usually has numbers in text tags
-            numbers = re.findall(r'>([\d,]+)<', r.text)
-            if numbers:
-                # the highest number is usually lines of code if included
-                stats['loc_data'] = sorted(numbers, key=lambda x: int(x.replace(',', '')))[-1]
-    except:
-        stats['loc_data'] = "N/A"
         
     return stats
 

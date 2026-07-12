@@ -98,6 +98,9 @@ def generate_svg(mode):
     .label {{ font-weight: bold; fill: {blue}; }}
     .value {{ fill: {text}; }}
     .stats {{ font-weight: bold; fill: {red}; }}
+    .add {{ font-weight: bold; fill: {ascii_color}; }}
+    .del {{ font-weight: bold; fill: {red}; }}
+    .mod {{ font-weight: bold; fill: {magenta}; }}
     .divider {{ fill: {comment}; }}
     .bg {{ fill: {bg}; stroke: {comment}; stroke-width: 1.5; }}
     .topbar {{ fill: {bg_dark}; }}
@@ -148,7 +151,7 @@ def generate_svg(mode):
   <text x="680" y="470" class="terminal" xml:space="preserve"><tspan class="title">GitHub Stats</tspan> <tspan class="divider">----------------------------------------------------</tspan></text>
   
   <text x="680" y="500" class="terminal" xml:space="preserve"><tspan class="divider">.</tspan> <tspan class="label">Repos:   </tspan> <tspan class="stats" id="repos_data">---</tspan>  <tspan class="label">| Contributed To:</tspan> <tspan class="stats" id="contributed_data">---</tspan>  <tspan class="label">| Profile Views:</tspan> <tspan class="stats" id="views_data">---</tspan></text>
-  <text x="680" y="530" class="terminal" xml:space="preserve"><tspan class="divider">.</tspan> <tspan class="label">Commits: </tspan> <tspan class="stats" id="commits_data">---</tspan>  <tspan class="label">| Followers:     </tspan> <tspan class="stats" id="followers_data">---</tspan>  <tspan class="label">| Lines of Code:</tspan> <tspan class="stats" id="loc_data">---</tspan></text>
+  <text x="680" y="530" class="terminal" xml:space="preserve"><tspan class="divider">.</tspan> <tspan class="label">Commits: </tspan> <tspan class="stats" id="commits_data">---</tspan>  <tspan class="label">| Followers:     </tspan> <tspan class="stats" id="followers_data">---</tspan>  <tspan class="label">| Lines of Code: </tspan><tspan class="value">(</tspan><tspan class="add">+10</tspan> <tspan class="del">-17</tspan> <tspan class="mod">~2005</tspan><tspan class="value">)</tspan></text>
   <text x="680" y="560" class="terminal" xml:space="preserve"><tspan class="divider">.</tspan> <tspan class="label">Current Streak:  </tspan> <tspan class="stats" id="current_streak_data">---</tspan>  <tspan class="label">| Longest Streak:</tspan> <tspan class="stats" id="longest_streak_data">---</tspan></text>
   
   <!-- Custom Colored Blocks at the bottom to mimic terminal aesthetics -->
